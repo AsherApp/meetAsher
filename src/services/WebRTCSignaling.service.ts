@@ -1,8 +1,8 @@
 import { Server as SocketIOServer, Socket } from 'socket.io';
 import { injectable, inject } from 'inversify';
-import { MeetingService } from './Meeting.service';
+import { MeetingService } from './MeetingService';
 import { TYPES } from '../constants/types';
-import { SignalingMessage, ParticipantStatus } from '../validations/interfaces/meeting';
+import { SignalingMessage, ParticipantStatus } from '../validations/interfaces/IMeet';
 
 interface SocketData {
   userId: string;

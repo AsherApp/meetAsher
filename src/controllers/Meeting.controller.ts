@@ -1,7 +1,7 @@
 
 import { injectable, inject } from 'inversify';
 import { Request, Response } from 'express';
-import { MeetingService } from '../services/Meeting.service';
+import { MeetingService } from '../services/MeetingService';
 import { TYPES } from '../constants/types';
 import { AuthenticatedRequest } from '../types/customRequest';
 import { asyncHandler } from '../utils/asyncHandler';

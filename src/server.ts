@@ -9,6 +9,8 @@ import { container } from './config/inversify.config';
 import { WebRTCSignalingService } from './services/WebRTCSignaling.service';
 import meetingRoutes from './routes/meeting.routes';
 import { TYPES } from './constants/types';
+import userRoutes from './routes/user.routes';
+import authRoutes from './routes/auth.routes';
 
 const app = express();
 const server = http.createServer(app);
@@ -25,6 +27,8 @@ app.use(express.json());
 
 // Routes
 app.use('/api/meetings', meetingRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/users', userRoutes);
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/video-conference')
@@ -37,7 +41,7 @@ const signalingService = container.get<WebRTCSignalingService>(
 );
 signalingService.initialize(io);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5151;
 
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

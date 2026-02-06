@@ -1,5 +1,5 @@
 import { Request } from 'express';
-import { IUserDocument, UserRole } from '../models/User.model';
+import { IUserDocument, UserRole } from '../models/UserModel';
 
 export type JWTPayload = {
   _id: string;
